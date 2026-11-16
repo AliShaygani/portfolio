@@ -90,10 +90,10 @@
     /* PROJECTS SECTION - GRID LAYOUT */
     .projects-container {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        grid-template-columns: 1fr; /* One project per row, read top to bottom */
         gap: 40px;
         padding: 20px;
-        max-width: 1200px;
+        max-width: 900px;
         margin: 0 auto;
     }
 
@@ -120,6 +120,53 @@
 
     .project img:hover, .project video:hover {
         transform: scale(1.05);
+    }
+
+    /* PROJECT IMAGE & VIDEO GRID */
+    .project-media {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-top: 20px;
+    }
+
+    .project-media img, .project-media video {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        aspect-ratio: 4 / 3;
+        object-fit: contain; /* Analysis plots and drawings: show the whole image */
+        background: #FFFFFF;
+        border-radius: 6px;
+    }
+
+    .project-media img.zoom, .project-media video {
+        object-fit: cover; /* CAD renders and animations: zoom in on the model */
+    }
+
+    .project-media img.wide {
+        grid-column: 1 / -1; /* Wide analysis screenshots use the full width */
+        aspect-ratio: auto;
+    }
+
+    .project-media > :last-child:nth-child(odd) {
+        grid-column: 1 / -1; /* A lone last item uses the full width */
+    }
+
+    .project-media img:hover, .project-media video:hover {
+        transform: scale(1.02);
+    }
+
+    /* SECTION LABELS INSIDE EACH PROJECT */
+    .project .label {
+        display: block;
+        font-weight: bold;
+        color: #A65B3D; /* Deep warm brown */
+        margin-top: 14px;
+    }
+
+    .project .label:first-child {
+        margin-top: 0;
     }
 
     /* CLICK-TO-ENLARGE IMAGES */
@@ -202,6 +249,10 @@
         text-align: center;
         padding: 50px 20px;
         border-radius: 10px;
+    }
+
+    #contact h2 {
+        color: #FFF6E8; /* Soft cream, so the heading shows on the terracotta box */
     }
 
     #contact a {
@@ -366,6 +417,10 @@ footer a:hover {
         padding: 0;
     }
 
+    .project-media {
+        grid-template-columns: 1fr; /* One image per row on phones */
+    }
+
     .section {
         padding: 40px 10px; /* More width for cards on phones */
     }
@@ -423,119 +478,130 @@ footer a:hover {
         <!-- Enclosure Wall Bracket -->
         <div class="project">
             <h3>Enclosure Wall Bracket</h3>
-            <p>Overview:<br>
-Designed a sheet-metal wall-mount bracket that holds a 20 kg electrical enclosure 100 mm off the wall, made from a single laser-cut blank with two press-brake bends and no welds.<br>
+            <p><span class="label">Overview</span>
+Designed a sheet-metal wall-mount bracket that holds a 20 kg electrical enclosure 100 mm off the wall, made from a single laser-cut blank with two press-brake bends and no welds.
 
-Responsibilities:<br>
+<span class="label">Responsibilities</span>
 ✅ Defined the requirements: 294 N design load per bracket (3× handling factor), FoS ≥ 2 on yield, ≤ 1.0 mm sag.<br>
 ✅ Compared three concepts with hand calculations and a weighted decision matrix; selected a triangular web.<br>
 ✅ Modeled the bracket in SolidWorks Sheet Metal and ran FEA in SolidWorks Simulation with a mesh convergence study.<br>
 ✅ Iterated on thickness, web height and washers after FEA showed the bolted joint, not the arm, was the critical spot.<br>
-✅ Produced the manufacturing drawing (BRKT-001) with GD&T per ASME Y14.5-2018.<br>
+✅ Produced the manufacturing drawing (BRKT-001) with GD&amp;T per ASME Y14.5-2018.
 
-Tools & Methods:<br>
-🛠️ SolidWorks Sheet Metal | SolidWorks Simulation (FEA) | Hand Calculations | GD&T | DFM<br>
+<span class="label">Tools &amp; Methods</span>
+🛠️ SolidWorks Sheet Metal | SolidWorks Simulation (FEA) | Hand Calculations | GD&amp;T | DFM
 
-Results & Impact:<br>
+<span class="label">Results &amp; Impact</span>
 🔩 Final design in 3 mm steel (0.78 kg): FoS 3.3, 0.40 mm deflection and a buckling factor of 26.7, meeting every strength and stiffness requirement.</p>
-            <img loading="lazy" src="bracket_isometric.PNG" alt="Enclosure Wall Bracket Isometric View">
-            <img loading="lazy" src="bracket_fea.png" alt="Enclosure Wall Bracket FEA von Mises Stress">
-            <img loading="lazy" src="bracket_drawing.png" alt="Enclosure Wall Bracket Engineering Drawing BRKT-001">
+            <div class="project-media">
+                <img loading="lazy" src="bracket_isometric.PNG" alt="Enclosure Wall Bracket Isometric View">
+                <img loading="lazy" src="bracket_fea.png" alt="Enclosure Wall Bracket FEA von Mises Stress">
+                <img loading="lazy" src="bracket_drawing.png" alt="Enclosure Wall Bracket Engineering Drawing BRKT-001">
+            </div>
         </div>
 
         <!-- Pressure Vessel -->
         <div class="project">
             <h3>Pressure Vessel</h3>
-            <p>Overview:<br>
-Static FEA and wall-thickness optimization of a 72 m³ skirt-supported cylindrical pressure vessel with an 88 barg (8.8 MPa) design pressure and SA-516-60N shell and heads, with the goal of reducing weight and cost.<br>
+            <p><span class="label">Overview</span>
+Static FEA and wall-thickness optimization of a 72 m³ skirt-supported cylindrical pressure vessel with an 88 barg (8.8 MPa) design pressure and SA-516-60N shell and heads, with the goal of reducing weight and cost.
 
-Responsibilities:<br>
+<span class="label">Responsibilities</span>
 ✅ Modeled the shell, heads, nozzles and skirt support in SolidWorks from the vessel's engineering drawing.<br>
 ✅ Set up static structural FEA in ANSYS Workbench: internal design pressure on the inner surfaces, fixed skirt, mesh refined at the shell and heads.<br>
-✅ Ran a wall-thickness study at 135, 130, 125 and 124 mm, tracking peak von Mises stress and deformation.<br>
+✅ Ran a wall-thickness study at 135, 130, 125 and 124 mm, tracking peak von Mises stress and deformation.
 
-Tools & Methods:<br>
-🛠️ SolidWorks (3D Modeling) | ANSYS Workbench (Static Structural) | Thickness Optimization<br>
+<span class="label">Tools &amp; Methods</span>
+🛠️ SolidWorks (3D Modeling) | ANSYS Workbench (Static Structural) | Thickness Optimization
 
-Results & Impact:<br>
-📈 Peak stress sat at the nozzle junctions in every run, rising from 247 MPa at 135 mm to 258 MPa at 124 mm. Thinning the wall from 135 to 125 mm cut vessel weight by 9% (95.6 t → 87.0 t).</p>
-            <img loading="lazy" src="pressure_final.PNG" alt="Pressure Vessel Final Design">
-            <video controls muted loop playsinline preload="metadata">
-                <source src="pressure_final.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <img loading="lazy" src="pressure_stress.png" alt="Pressure Vessel Stress Analysis">
-            <img loading="lazy" src="pressure_deformation.png" alt="Pressure Vessel Deformation Analysis">
+<span class="label">Results &amp; Impact</span>
+📈 The nozzle junctions were the critical areas in every run: von Mises stress there rose from 247 MPa at 135 mm to 258 MPa at 124 mm. Thinning the wall from 135 to 125 mm cut vessel weight by 9% (95.6 t → 87.0 t), with 2.2 mm maximum deformation.<br>
+🔍 Next step: linearize the stresses at the nozzle junctions per ASME VIII Div. 2 and check them against SA-516-60 allowables, rather than comparing point stresses to yield.</p>
+            <div class="project-media">
+                <img loading="lazy" class="zoom" src="pressure_final.PNG" alt="Pressure Vessel Final Design">
+                <video controls muted loop playsinline preload="metadata">
+                    <source src="pressure_final.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <img loading="lazy" class="wide" src="pressure_stress.png" alt="Pressure Vessel von Mises Stress, 125 mm Wall">
+                <img loading="lazy" class="wide" src="pressure_deformation.png" alt="Pressure Vessel Total Deformation, 125 mm Wall">
+            </div>
         </div>
 
         <!-- Manual Water Pump -->
         <div class="project">
             <h3>Manual Water Pump</h3>
-            <p>Overview:<br>
-Designed a lever-operated piston pump for 18.9 L water jugs that fits any standard 55 mm opening, can be 3D printed in PLA, and comes apart for printing and cleaning.<br>
+            <p><span class="label">Overview</span>
+Five-person team project: a lever-operated piston pump for 18.9 L water jugs that fits any standard 55 mm opening, can be 3D printed in PLA, and comes apart for printing and cleaning.
 
-Responsibilities:<br>
+<span class="label">Responsibilities</span>
 ✅ Compared screw, air-pressure and piston pump concepts; selected a piston pump with ball check valves.<br>
 ✅ Modeled the shell, piston, rod, lever and lid in SolidWorks and Fusion 360, designed for FDM printing with minimal supports.<br>
 ✅ Specified H7/g6 sliding fits for the three pins (0.005–0.029 mm clearance).<br>
 ✅ Estimated O-ring break-away friction (18.1 N) and lever mechanical advantage (1.29) to size the handle load.<br>
-✅ Ran static FEA in ANSYS Workbench on the handle and piston rod, including a 50 N overload case, and a range-of-motion study in Fusion 360.<br>
+✅ Ran static FEA in ANSYS Workbench on the handle and piston rod, including a 50 N overload case, and a range-of-motion study in Fusion 360.
 
-Tools & Methods:<br>
-🛠️ SolidWorks | Fusion 360 | ANSYS Workbench (FEA) | ISO Fits & Tolerances | Design for 3D Printing<br>
+<span class="label">Tools &amp; Methods</span>
+🛠️ SolidWorks | Fusion 360 | ANSYS Workbench (FEA) | ISO Fits &amp; Tolerances | Design for 3D Printing
 
-Results & Impact:<br>
+<span class="label">Results &amp; Impact</span>
 🌊 37.6 mL per stroke (target 30 mL) with a 14 N handle force. Optimizing the piston rod against PLA's 37 MPa strength with a 1.5 safety factor cut its thickness by 57% (24.1 MPa peak vs 24.6 MPa allowable) and saved about 26 minutes of print time.</p>
-            <img loading="lazy" src="pump_final.PNG" alt="Manual Water Pump Final Design">
-            <img loading="lazy" src="pump_section.PNG" alt="Manual Water Pump Section View">
-            <img loading="lazy" src="pump_stress.jpg" alt="Manual Water Pump Stress Analysis">
-            <img loading="lazy" src="pump_deformation.jpg" alt="Manual Water Pump Deformation Analysis">
+            <div class="project-media">
+                <img loading="lazy" class="zoom" src="pump_final.PNG" alt="Manual Water Pump Final Design">
+                <img loading="lazy" class="zoom" src="pump_section.PNG" alt="Manual Water Pump Section View">
+                <img loading="lazy" class="wide" src="pump_stress.jpg" alt="Manual Water Pump Stress Analysis">
+                <img loading="lazy" class="wide" src="pump_deformation.jpg" alt="Manual Water Pump Deformation Analysis">
+            </div>
         </div>
 
         <!-- Butterfly Valve -->
         <div class="project">
             <h3>Butterfly Valve</h3>
-            <p>Overview:<br>
-Designed a high-performance butterfly valve optimized for fluid control applications in industrial systems.<br>
+            <p><span class="label">Overview</span>
+Modeled a lever-operated butterfly valve in SolidWorks: a four-lug body with the disc mounted on a stem, turned by a lever arm.
 
-Responsibilities:<br>
-✅ Developed the 3D CAD model in SolidWorks.<br>
-✅ Designed the exploded assembly to showcase part interactions.<br>
-✅ Applied Design for Manufacturing (DFM) to optimize production feasibility.<br>
+<span class="label">Responsibilities</span>
+✅ Modeled the body, disc, stem, lever and fasteners in SolidWorks and built the full assembly.<br>
+✅ Created an exploded-view animation that shows how every part fits together.<br>
+✅ Applied Design for Manufacturing (DFM), GD&amp;T and material selection to the parts.
 
-Tools & Methods:<br>
-🛠️ SolidWorks (Modeling & Exploded View) | GD&T | Material Selection<br>
+<span class="label">Tools &amp; Methods</span>
+🛠️ SolidWorks (Part, Assembly &amp; Exploded View) | GD&amp;T | Material Selection
 
-Results & Impact:<br>
-🚀 The design ensured low-pressure drop, optimized sealing, and cost-effective manufacturing.</p>
-            <img loading="lazy" src="butterfly_final.PNG" alt="Butterfly Valve Final Design">
-            <video controls muted loop playsinline preload="metadata">
-                <source src="butterfly_exploded.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+<span class="label">Results &amp; Impact</span>
+🚀 Complete valve assembly model with an exploded-view animation of the assembly sequence.</p>
+            <div class="project-media">
+                <img loading="lazy" class="zoom" src="butterfly_final.PNG" alt="Butterfly Valve Final Design">
+                <video controls muted loop playsinline preload="metadata">
+                    <source src="butterfly_exploded.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
         </div>
 
         <!-- Metal Sheet Cutter -->
         <div class="project">
             <h3>Metal Sheet Cutter</h3>
-            <p>Overview:<br>
-Designed a precision metal sheet cutter with an ergonomic interface for easy operation.<br>
+            <p><span class="label">Overview</span>
+Modeled a bench-mounted, hand-operated metal sheet cutter in SolidWorks: a long handle and linkage drive the moving blade against a fixed blade on a bolt-down base.
 
-Responsibilities:<br>
-✅ Modeled the final cutter assembly in SolidWorks.<br>
-✅ Developed an exploded version to illustrate how components interact.<br>
-✅ Applied material selection techniques to improve durability and cutting efficiency.<br>
+<span class="label">Responsibilities</span>
+✅ Modeled the base, blades, handle, linkage and fasteners in SolidWorks and assembled the cutter.<br>
+✅ Created an exploded-view animation that shows how the components fit together.<br>
+✅ Applied material selection to the blades and main structural parts.
 
-Tools & Methods:<br>
-🛠️ SolidWorks | Sheet Metal Design | Stress Analysis<br>
+<span class="label">Tools &amp; Methods</span>
+🛠️ SolidWorks | Sheet Metal Design | Material Selection
 
-Results & Impact:<br>
-📌 The cutter achieved enhanced durability and high cutting accuracy, making it ideal for industrial applications.</p>
-            <img loading="lazy" src="cutter_final.png" alt="Metal Sheet Cutter Final Design">
-            <video controls muted loop playsinline preload="metadata">
-                <source src="cutter_exploded.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+<span class="label">Results &amp; Impact</span>
+📌 Complete cutter assembly model with an exploded-view animation of all its components.</p>
+            <div class="project-media">
+                <img loading="lazy" class="zoom" src="cutter_final.png" alt="Metal Sheet Cutter Final Design">
+                <video controls muted loop playsinline preload="metadata">
+                    <source src="cutter_exploded.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
         </div>
 
     </div>
