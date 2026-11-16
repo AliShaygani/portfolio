@@ -108,6 +108,38 @@
         margin-top: 15px;
     }
 
+    /* CLICK-TO-ENLARGE IMAGES */
+    .project img {
+        cursor: zoom-in;
+    }
+
+    #lightbox {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.85);
+        z-index: 2000;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        box-sizing: border-box;
+        cursor: zoom-out;
+    }
+
+    #lightbox.open {
+        display: flex;
+    }
+
+    #lightbox img {
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 5px;
+        background: white;
+    }
+
     .project p {
         font-size: 18px;
         color: #4B3F2F; /* Dark brown */
@@ -350,8 +382,7 @@ Tools & Methods:<br>
 
 Results & Impact:<br>
 🔩 Final design in 3 mm steel (0.78 kg): FoS 3.3, 0.40 mm deflection and a buckling factor of 26.7, meeting every strength and stiffness requirement.</p>
-            <img src="bracket_final.png" alt="Enclosure Wall Bracket Final Design">
-            <img src="bracket_concepts.png" alt="Enclosure Wall Bracket Concept Comparison">
+            <img src="bracket_isometric.jpg" alt="Enclosure Wall Bracket Isometric View">
             <img src="bracket_fea.png" alt="Enclosure Wall Bracket FEA von Mises Stress">
             <img src="bracket_drawing.png" alt="Enclosure Wall Bracket Engineering Drawing BRKT-001">
             <a href="bracket_case_study.pdf" target="_blank" class="btn">📄 View Full Case Study (PDF)</a>
@@ -469,6 +500,26 @@ Results & Impact:<br>
         
     </p>
 </footer>
+
+<!-- Click-to-enlarge viewer -->
+<div id="lightbox"><img src="" alt=""></div>
+<script>
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = lightbox.querySelector("img");
+    document.querySelectorAll(".project img").forEach(function (img) {
+        img.addEventListener("click", function () {
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightbox.classList.add("open");
+        });
+    });
+    lightbox.addEventListener("click", function () {
+        lightbox.classList.remove("open");
+    });
+    document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") lightbox.classList.remove("open");
+    });
+</script>
 
 </body>
 </html>
