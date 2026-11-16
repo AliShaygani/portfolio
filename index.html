@@ -4,10 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ali Shaygani - Portfolio</title>
+
+    <!-- Description and link preview (LinkedIn, email, messages) -->
+    <meta name="description" content="Ali Shaygani, Mechanical Designer. SolidWorks, GD&amp;T and FEA projects: sheet-metal wall bracket, pressure vessel, water pump, butterfly valve and metal sheet cutter.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Ali Shaygani | Mechanical Designer Portfolio">
+    <meta property="og:description" content="SolidWorks, GD&amp;T and FEA projects, from requirements and concepts to analysis and manufacturing drawings.">
+    <meta property="og:url" content="https://alishaygani.github.io/portfolio/">
+    <meta property="og:image" content="https://alishaygani.github.io/portfolio/share_preview.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="628">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Carlito: free font with the same sizing as Calibri, for Mac and phone visitors -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Carlito:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
    <style>
-       /* Apply Calibri Font */
+       /* Apply Calibri Font (Carlito where Calibri isn't installed) */
     body {
-        font-family: Calibri, sans-serif;
+        font-family: Calibri, Carlito, sans-serif;
         text-align: center;
         padding-top: 80px;
         background-color: #FAE5D3; /* Warm beige */
@@ -22,19 +39,19 @@
         width: 100%;
         background: #D8926B; /* Warm terracotta */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        padding: 15px 0;
+        padding: 10px 0;
         z-index: 1000;
         text-align: center;
     }
 
     nav a {
-        margin: 20px;
+        margin: 0 10px;
         text-decoration: none;
         font-weight: bold;
         color: #FFF6E8; /* Soft cream */
         transition: color 0.3s;
         font-size: 18px;
-        padding: 10px 15px;
+        padding: 8px 15px;
         display: inline-block;
     }
 
@@ -47,6 +64,7 @@
     .section {
         margin-top: 50px;
         padding: 40px;
+        scroll-margin-top: 70px; /* Keeps headings clear of the menu bar after a menu click */
     }
 
     /* HEADINGS */
@@ -138,6 +156,39 @@
         max-height: 100%;
         border-radius: 5px;
         background: white;
+    }
+
+    /* SKILLS SECTION */
+    .skills-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .skill-group {
+        background: #FFF6E8; /* Soft cream */
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .skill-group h3 {
+        font-size: 22px;
+        margin-top: 0;
+    }
+
+    .skill-tag {
+        display: inline-block;
+        background: #FAE5D3; /* Warm beige */
+        color: #4B3F2F;
+        border: 1px solid #E6AC87;
+        border-radius: 20px;
+        padding: 6px 14px;
+        margin: 5px;
+        font-size: 16px;
     }
 
     .project p {
@@ -314,6 +365,15 @@ footer a:hover {
         grid-template-columns: 1fr; /* Stack projects vertically */
     }
 
+    .skills-container {
+        grid-template-columns: 1fr; /* Stack skill groups vertically */
+        padding: 0;
+    }
+
+    .section {
+        padding: 40px 10px; /* More width for cards on phones */
+    }
+
     #profile-photo {
         width: 120px; /* Reduce photo size */
         height: 120px;
@@ -347,14 +407,14 @@ footer a:hover {
         <header>
     <img src="profile.jpg" alt="Ali Shaygani Photo" id="profile-photo">
     <h1 id="name-title">Ali Shaygani</h1>
-            <p id="tagline">Mechanical Designer | Problem Solver | Innovator</p>
+            <p id="tagline">Mechanical Designer | SolidWorks (CSWA) · GD&amp;T · FEA</p>
 
 </header>
 
 
-    <h1>Welcome to My Portfolio</h1>
    <nav>
     <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
     <a href="#contact">Contact</a>
 </nav>
 
@@ -382,9 +442,9 @@ Tools & Methods:<br>
 
 Results & Impact:<br>
 🔩 Final design in 3 mm steel (0.78 kg): FoS 3.3, 0.40 mm deflection and a buckling factor of 26.7, meeting every strength and stiffness requirement.</p>
-            <img src="bracket_isometric.jpg" alt="Enclosure Wall Bracket Isometric View">
-            <img src="bracket_fea.png" alt="Enclosure Wall Bracket FEA von Mises Stress">
-            <img src="bracket_drawing.png" alt="Enclosure Wall Bracket Engineering Drawing BRKT-001">
+            <img loading="lazy" src="bracket_isometric.jpg" alt="Enclosure Wall Bracket Isometric View">
+            <img loading="lazy" src="bracket_fea.png" alt="Enclosure Wall Bracket FEA von Mises Stress">
+            <img loading="lazy" src="bracket_drawing.png" alt="Enclosure Wall Bracket Engineering Drawing BRKT-001">
             <a href="bracket_case_study.pdf" target="_blank" class="btn">📄 View Full Case Study (PDF)</a>
         </div>
 
@@ -404,13 +464,13 @@ Tools & Methods:<br>
 
 Results & Impact:<br>
 📈 The vessel design complied with ASME standards, ensuring safe operation and reduced material costs.</p>
-            <img src="pressure_final.PNG" alt="Pressure Vessel Final Design">
-            <video controls>
+            <img loading="lazy" src="pressure_final.PNG" alt="Pressure Vessel Final Design">
+            <video controls muted loop playsinline preload="metadata">
                 <source src="pressure_final.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            <img src="pressure_stress.png" alt="Pressure Vessel Stress Analysis">
-            <img src="pressure_deformation.png" alt="Pressure Vessel Deformation Analysis">
+            <img loading="lazy" src="pressure_stress.png" alt="Pressure Vessel Stress Analysis">
+            <img loading="lazy" src="pressure_deformation.png" alt="Pressure Vessel Deformation Analysis">
         </div>
 
         <!-- Water Pump -->
@@ -429,10 +489,10 @@ Tools & Methods:<br>
 
 Results & Impact:<br>
 🌊 Optimized fluid flow, ensuring energy-efficient pumping and increased lifespan.</p>
-            <img src="pump_final.PNG" alt="Water Pump Final Design">
-            <img src="pump_section.PNG" alt="Water Pump Section View">
-            <img src="pump_stress.jpg" alt="Water Pump Stress Analysis">
-            <img src="pump_deformation.jpg" alt="Water Pump Deformation Analysis">
+            <img loading="lazy" src="pump_final.PNG" alt="Water Pump Final Design">
+            <img loading="lazy" src="pump_section.PNG" alt="Water Pump Section View">
+            <img loading="lazy" src="pump_stress.jpg" alt="Water Pump Stress Analysis">
+            <img loading="lazy" src="pump_deformation.jpg" alt="Water Pump Deformation Analysis">
         </div>
 
         <!-- Butterfly Valve -->
@@ -451,8 +511,8 @@ Tools & Methods:<br>
 
 Results & Impact:<br>
 🚀 The design ensured low-pressure drop, optimized sealing, and cost-effective manufacturing.</p>
-            <img src="butterfly_final.PNG" alt="Butterfly Valve Final Design">
-            <video controls>
+            <img loading="lazy" src="butterfly_final.PNG" alt="Butterfly Valve Final Design">
+            <video controls muted loop playsinline preload="metadata">
                 <source src="butterfly_exploded.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -474,8 +534,8 @@ Tools & Methods:<br>
 
 Results & Impact:<br>
 📌 The cutter achieved enhanced durability and high cutting accuracy, making it ideal for industrial applications.</p>
-            <img src="cutter_final.png" alt="Metal Sheet Cutter Final Design">
-            <video controls>
+            <img loading="lazy" src="cutter_final.png" alt="Metal Sheet Cutter Final Design">
+            <video controls muted loop playsinline preload="metadata">
                 <source src="cutter_exploded.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -485,6 +545,40 @@ Results & Impact:<br>
 </div>
 
 
+   <div class="section" id="skills">
+    <h2>Skills</h2>
+
+    <div class="skills-container">
+
+        <div class="skill-group">
+            <h3>CAD &amp; Drafting</h3>
+            <span class="skill-tag">SolidWorks (CSWA)</span>
+            <span class="skill-tag">AutoCAD</span>
+            <span class="skill-tag">CATIA</span>
+            <span class="skill-tag">Fusion 360</span>
+            <span class="skill-tag">Sheet Metal Design</span>
+            <span class="skill-tag">Fabrication &amp; Assembly Drawings</span>
+        </div>
+
+        <div class="skill-group">
+            <h3>Analysis</h3>
+            <span class="skill-tag">FEA (ANSYS)</span>
+            <span class="skill-tag">SolidWorks Simulation</span>
+            <span class="skill-tag">Hand Calculations</span>
+            <span class="skill-tag">Simulink</span>
+        </div>
+
+        <div class="skill-group">
+            <h3>Design &amp; Manufacturing</h3>
+            <span class="skill-tag">GD&amp;T (ASME Y14.5)</span>
+            <span class="skill-tag">Tolerance Stack-ups</span>
+            <span class="skill-tag">DFM / DFA</span>
+            <span class="skill-tag">BOM &amp; ECN Management</span>
+            <span class="skill-tag">NDT Coursework</span>
+        </div>
+
+    </div>
+</div>
 
 
    <div class="section" id="contact">
@@ -519,6 +613,22 @@ Results & Impact:<br>
     document.addEventListener("keydown", function (e) {
         if (e.key === "Escape") lightbox.classList.remove("open");
     });
+
+    // Play each animation on a loop while it's on screen, pause it when it scrolls away
+    if ("IntersectionObserver" in window) {
+        const videoWatcher = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.play().catch(function () {});
+                } else {
+                    entry.target.pause();
+                }
+            });
+        }, { threshold: 0.5 });
+        document.querySelectorAll(".project video").forEach(function (video) {
+            videoWatcher.observe(video);
+        });
+    }
 </script>
 
 </body>
