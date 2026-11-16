@@ -6,7 +6,7 @@
     <title>Ali Shaygani - Portfolio</title>
 
     <!-- Description and link preview (LinkedIn, email, messages) -->
-    <meta name="description" content="Ali Shaygani, Mechanical Designer. SolidWorks, GD&amp;T and FEA projects: sheet-metal wall bracket, pressure vessel, water pump, butterfly valve and metal sheet cutter.">
+    <meta name="description" content="Ali Shaygani, Mechanical Designer. SolidWorks, GD&amp;T and FEA projects: sheet-metal wall bracket, pressure vessel, manual water pump, butterfly valve and metal sheet cutter.">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Ali Shaygani | Mechanical Designer Portfolio">
     <meta property="og:description" content="SolidWorks, GD&amp;T and FEA projects, from requirements and concepts to analysis and manufacturing drawings.">
@@ -452,18 +452,18 @@ Results & Impact:<br>
         <div class="project">
             <h3>Pressure Vessel</h3>
             <p>Overview:<br>
-Designed a pressure vessel to withstand high internal pressures while ensuring structural integrity under industrial operating conditions.<br>
+Static FEA and wall-thickness optimization of a 72 m³ skirt-supported cylindrical pressure vessel with an 88 barg (8.8 MPa) design pressure and SA-516-60N shell and heads, with the goal of reducing weight and cost.<br>
 
 Responsibilities:<br>
-✅ Created the SolidWorks model for structural analysis.<br>
-✅ Conducted Finite Element Analysis (FEA) in ANSYS to evaluate stress distribution.<br>
-✅ Performed deformation analysis to validate safety under load conditions.<br>
+✅ Modeled the shell, heads, nozzles and skirt support in SolidWorks from the vessel's engineering drawing.<br>
+✅ Set up static structural FEA in ANSYS Workbench: internal design pressure on the inner surfaces, fixed skirt, mesh refined at the shell and heads.<br>
+✅ Ran a wall-thickness study at 135, 130, 125 and 124 mm, tracking peak von Mises stress and deformation.<br>
 
 Tools & Methods:<br>
-🛠️ SolidWorks (3D Modeling) | ANSYS (FEA) | Stress & Deformation Analysis<br>
+🛠️ SolidWorks (3D Modeling) | ANSYS Workbench (Static Structural) | Thickness Optimization<br>
 
 Results & Impact:<br>
-📈 The vessel design complied with ASME standards, ensuring safe operation and reduced material costs.</p>
+📈 Peak stress sat at the nozzle junctions in every run, rising from 247 MPa at 135 mm to 258 MPa at 124 mm. Thinning the wall from 135 to 125 mm cut vessel weight by 9% (95.6 t → 87.0 t).</p>
             <img loading="lazy" src="pressure_final.PNG" alt="Pressure Vessel Final Design">
             <video controls muted loop playsinline preload="metadata">
                 <source src="pressure_final.mp4" type="video/mp4">
@@ -473,26 +473,28 @@ Results & Impact:<br>
             <img loading="lazy" src="pressure_deformation.png" alt="Pressure Vessel Deformation Analysis">
         </div>
 
-        <!-- Water Pump -->
+        <!-- Manual Water Pump -->
         <div class="project">
-            <h3>Water Pump</h3>
+            <h3>Manual Water Pump</h3>
             <p>Overview:<br>
-Developed a high-efficiency water pump for industrial and residential applications.<br>
+Designed a lever-operated piston pump for 18.9 L water jugs that fits any standard 55 mm opening, can be 3D printed in PLA, and comes apart for printing and cleaning.<br>
 
 Responsibilities:<br>
-✅ Designed the pump housing, impeller, and sealing components.<br>
-✅ Conducted section view analysis to visualize internal flow paths.<br>
-✅ Performed stress and deformation analysis to ensure durability.<br>
+✅ Compared screw, air-pressure and piston pump concepts; selected a piston pump with ball check valves.<br>
+✅ Modeled the shell, piston, rod, lever and lid in SolidWorks and Fusion 360, designed for FDM printing with minimal supports.<br>
+✅ Specified H7/g6 sliding fits for the three pins (0.005–0.029 mm clearance).<br>
+✅ Estimated O-ring break-away friction (18.1 N) and lever mechanical advantage (1.29) to size the handle load.<br>
+✅ Ran static FEA in ANSYS Workbench on the handle and piston rod, including a 50 N overload case, and a range-of-motion study in Fusion 360.<br>
 
 Tools & Methods:<br>
-🛠️ SolidWorks (3D Modeling) | FEA in ANSYS | Fluid Dynamics Considerations<br>
+🛠️ SolidWorks | Fusion 360 | ANSYS Workbench (FEA) | ISO Fits & Tolerances | Design for 3D Printing<br>
 
 Results & Impact:<br>
-🌊 Optimized fluid flow, ensuring energy-efficient pumping and increased lifespan.</p>
-            <img loading="lazy" src="pump_final.PNG" alt="Water Pump Final Design">
-            <img loading="lazy" src="pump_section.PNG" alt="Water Pump Section View">
-            <img loading="lazy" src="pump_stress.jpg" alt="Water Pump Stress Analysis">
-            <img loading="lazy" src="pump_deformation.jpg" alt="Water Pump Deformation Analysis">
+🌊 37.6 mL per stroke (target 30 mL) with a 14 N handle force. Optimizing the piston rod against PLA's 37 MPa strength with a 1.5 safety factor cut its thickness by 57% (24.1 MPa peak vs 24.6 MPa allowable) and saved about 26 minutes of print time.</p>
+            <img loading="lazy" src="pump_final.PNG" alt="Manual Water Pump Final Design">
+            <img loading="lazy" src="pump_section.PNG" alt="Manual Water Pump Section View">
+            <img loading="lazy" src="pump_stress.jpg" alt="Manual Water Pump Stress Analysis">
+            <img loading="lazy" src="pump_deformation.jpg" alt="Manual Water Pump Deformation Analysis">
         </div>
 
         <!-- Butterfly Valve -->
