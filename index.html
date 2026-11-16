@@ -104,6 +104,10 @@
         transform: scale(1.05);
     }
 
+    .project .btn {
+        margin-top: 15px;
+    }
+
     .project p {
         font-size: 18px;
         color: #4B3F2F; /* Dark brown */
@@ -327,28 +331,30 @@ footer a:hover {
     <h2>Projects</h2>
     
     <div class="projects-container">
-        
-        <!-- Butterfly Valve -->
+
+        <!-- Enclosure Wall Bracket -->
         <div class="project">
-            <h3>Butterfly Valve</h3>
+            <h3>Enclosure Wall Bracket</h3>
             <p>Overview:<br>
-Designed a high-performance butterfly valve optimized for fluid control applications in industrial systems.<br>
+Designed a sheet-metal wall-mount bracket that holds a 20 kg electrical enclosure 100 mm off the wall, made from a single laser-cut blank with two press-brake bends and no welds.<br>
 
 Responsibilities:<br>
-✅ Developed the 3D CAD model in SolidWorks.<br>
-✅ Designed the exploded assembly to showcase part interactions.<br>
-✅ Applied Design for Manufacturing (DFM) to optimize production feasibility.<br>
+✅ Defined the requirements: 294 N design load per bracket (3× handling factor), FoS ≥ 2 on yield, ≤ 1.0 mm sag.<br>
+✅ Compared three concepts with hand calculations and a weighted decision matrix; selected a triangular web.<br>
+✅ Modeled the bracket in SolidWorks Sheet Metal and ran FEA in SolidWorks Simulation with a mesh convergence study.<br>
+✅ Iterated on thickness, web height and washers after FEA showed the bolted joint, not the arm, was the critical spot.<br>
+✅ Produced the manufacturing drawing (BRKT-001) with GD&T per ASME Y14.5-2018.<br>
 
 Tools & Methods:<br>
-🛠️ SolidWorks (Modeling & Exploded View) | GD&T | Material Selection<br>
+🛠️ SolidWorks Sheet Metal | SolidWorks Simulation (FEA) | Hand Calculations | GD&T | DFM<br>
 
 Results & Impact:<br>
-🚀 The design ensured low-pressure drop, optimized sealing, and cost-effective manufacturing.</p>
-            <img src="butterfly_final.PNG" alt="Butterfly Valve Final Design">
-            <video controls>
-                <source src="butterfly_exploded.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+🔩 Final design in 3 mm steel (0.78 kg): FoS 3.3, 0.40 mm deflection and a buckling factor of 26.7, meeting every strength and stiffness requirement.</p>
+            <img src="bracket_final.png" alt="Enclosure Wall Bracket Final Design">
+            <img src="bracket_concepts.png" alt="Enclosure Wall Bracket Concept Comparison">
+            <img src="bracket_fea.png" alt="Enclosure Wall Bracket FEA von Mises Stress">
+            <img src="bracket_drawing.png" alt="Enclosure Wall Bracket Engineering Drawing BRKT-001">
+            <a href="bracket_case_study.pdf" target="_blank" class="btn">📄 View Full Case Study (PDF)</a>
         </div>
 
         <!-- Pressure Vessel -->
@@ -376,6 +382,51 @@ Results & Impact:<br>
             <img src="pressure_deformation.png" alt="Pressure Vessel Deformation Analysis">
         </div>
 
+        <!-- Water Pump -->
+        <div class="project">
+            <h3>Water Pump</h3>
+            <p>Overview:<br>
+Developed a high-efficiency water pump for industrial and residential applications.<br>
+
+Responsibilities:<br>
+✅ Designed the pump housing, impeller, and sealing components.<br>
+✅ Conducted section view analysis to visualize internal flow paths.<br>
+✅ Performed stress and deformation analysis to ensure durability.<br>
+
+Tools & Methods:<br>
+🛠️ SolidWorks (3D Modeling) | FEA in ANSYS | Fluid Dynamics Considerations<br>
+
+Results & Impact:<br>
+🌊 Optimized fluid flow, ensuring energy-efficient pumping and increased lifespan.</p>
+            <img src="pump_final.PNG" alt="Water Pump Final Design">
+            <img src="pump_section.PNG" alt="Water Pump Section View">
+            <img src="pump_stress.jpg" alt="Water Pump Stress Analysis">
+            <img src="pump_deformation.jpg" alt="Water Pump Deformation Analysis">
+        </div>
+
+        <!-- Butterfly Valve -->
+        <div class="project">
+            <h3>Butterfly Valve</h3>
+            <p>Overview:<br>
+Designed a high-performance butterfly valve optimized for fluid control applications in industrial systems.<br>
+
+Responsibilities:<br>
+✅ Developed the 3D CAD model in SolidWorks.<br>
+✅ Designed the exploded assembly to showcase part interactions.<br>
+✅ Applied Design for Manufacturing (DFM) to optimize production feasibility.<br>
+
+Tools & Methods:<br>
+🛠️ SolidWorks (Modeling & Exploded View) | GD&T | Material Selection<br>
+
+Results & Impact:<br>
+🚀 The design ensured low-pressure drop, optimized sealing, and cost-effective manufacturing.</p>
+            <img src="butterfly_final.PNG" alt="Butterfly Valve Final Design">
+            <video controls>
+                <source src="butterfly_exploded.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
         <!-- Metal Sheet Cutter -->
         <div class="project">
             <h3>Metal Sheet Cutter</h3>
@@ -399,51 +450,6 @@ Results & Impact:<br>
             </video>
         </div>
 
-        <!-- Water Pump -->
-        <div class="project">
-            <h3>Water Pump</h3>
-            <p>Overview:<br>
-Developed a high-efficiency water pump for industrial and residential applications.<br>
-
-Responsibilities:<br>
-✅ Designed the pump housing, impeller, and sealing components.<br>
-✅ Conducted section view analysis to visualize internal flow paths.<br>
-✅ Performed stress and deformation analysis to ensure durability.<br>
-
-Tools & Methods:<br>
-🛠️ SolidWorks (3D Modeling) | FEA in ANSYS | Fluid Dynamics Considerations<br>
-
-Results & Impact:<br>
-🌊 Optimized fluid flow, ensuring energy-efficient pumping and increased lifespan.</p>
-            <img src="pump_final.PNG" alt="Water Pump Final Design">
-            <img src="pump_section.PNG" alt="Water Pump Section View">
-            <img src="pump_stress.jpg" alt="Water Pump Stress Analysis">
-            <img src="pump_deformation.jpg" alt="Water Pump Deformation Analysis">
-        </div>
-
-        <!-- Ball Valve -->
-        <div class="project">
-            <h3>Ball Valve</h3>
-            <p>Overview:<br>
-Designed an industrial ball valve for fluid flow control, ensuring reliable operation and minimal leakage.<br>
-
-Responsibilities:<br>
-✅ Modeled the final valve assembly in SolidWorks.<br>
-✅ Developed a functional animation to demonstrate movement.<br>
-✅ Implemented tolerance analysis to ensure manufacturability.<br>
-
-Tools & Methods:<br>
-🛠️ SolidWorks (CAD Design) | Tolerance Analysis | GD&T<br>
-
-Results & Impact:<br>
-📏 Delivered a precise and durable valve design, optimized for seamless assembly and long-term reliability.</p>
-            <img src="ball_final.PNG" alt="Ball Valve Final Design">
-            <video controls>
-                <source src="ball_final.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-
     </div>
 </div>
 
@@ -456,10 +462,10 @@ Results & Impact:<br>
     <a href="https://www.linkedin.com/in/ali-shaygani-b16b74250/" target="_blank" class="btn">🔗 LinkedIn</a>
 </div>
     <footer>
-    <p>© 2025 Ali Shaygani. All rights reserved.</p>
+    <p>© 2026 Ali Shaygani. All rights reserved.</p>
     <p>
-        Connect with me: 
-        <a href="https://www.linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>  
+        Connect with me:
+        <a href="https://www.linkedin.com/in/ali-shaygani-b16b74250/" target="_blank">LinkedIn</a>
         
     </p>
 </footer>
